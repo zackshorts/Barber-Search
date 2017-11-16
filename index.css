@@ -1,0 +1,13 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 62.5%;
+	background: url("images/barber1.jpg") no-repeat center center fixed;
+	background-size: cover;
+	height: 100%;
+	margin: auto;
+	
+}
