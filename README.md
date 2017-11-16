@@ -1,3 +1,3 @@
 # BYU CS301R Desktop Project
 
-#Barber-Searcg
+#Barber-Search
