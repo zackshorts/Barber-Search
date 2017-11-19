@@ -22,7 +22,6 @@ function onSignIn(googleUser) {
                     email: user.email,
                     photoURL: user.photoURL
                 });
-                window.location.href = '../barber.html';
             });
         }
     });
