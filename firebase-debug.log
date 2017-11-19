@@ -1,28 +1,36 @@
-[debug] [2017-11-18T18:59:16.101Z] ----------------------------------------------------------------------
-[debug] [2017-11-18T18:59:16.104Z] Command:       /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/firebase serve
-[debug] [2017-11-18T18:59:16.104Z] CLI Version:   3.15.2
-[debug] [2017-11-18T18:59:16.104Z] Platform:      darwin
-[debug] [2017-11-18T18:59:16.104Z] Node Version:  v8.6.0
-[debug] [2017-11-18T18:59:16.105Z] Time:          Sat Nov 18 2017 11:59:16 GMT-0700 (MST)
-[debug] [2017-11-18T18:59:16.105Z] ----------------------------------------------------------------------
+[debug] [2017-11-18T23:29:02.585Z] ----------------------------------------------------------------------
+[debug] [2017-11-18T23:29:02.587Z] Command:       /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-18T23:29:02.587Z] CLI Version:   3.15.2
+[debug] [2017-11-18T23:29:02.587Z] Platform:      darwin
+[debug] [2017-11-18T23:29:02.587Z] Node Version:  v8.6.0
+[debug] [2017-11-18T23:29:02.588Z] Time:          Sat Nov 18 2017 16:29:02 GMT-0700 (MST)
+[debug] [2017-11-18T23:29:02.588Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-11-18T18:59:16.129Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-11-18T18:59:16.129Z] > authorizing via signed-in user
-[debug] [2017-11-18T18:59:16.133Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/barber-search  
- Sat Nov 18 2017 11:59:16 GMT-0700 (MST)
-[debug] [2017-11-18T18:59:17.734Z] <<< HTTP RESPONSE 200
-[debug] [2017-11-18T18:59:17.735Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/barber-search/tokens  
- Sat Nov 18 2017 11:59:17 GMT-0700 (MST)
-[debug] [2017-11-18T18:59:18.166Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-18T23:29:02.601Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-18T23:29:02.601Z] > authorizing via signed-in user
+[debug] [2017-11-18T23:29:02.602Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-18T23:29:02.603Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/dsXT7BIespV5uXdGaRqrN2YDbW0_5plwCKTfrc-3QQQ',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat Nov 18 2017 16:29:02 GMT-0700 (MST)
+[debug] [2017-11-18T23:29:02.927Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-18T23:29:02.939Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/barber-search  
+ Sat Nov 18 2017 16:29:02 GMT-0700 (MST)
+[debug] [2017-11-18T23:29:03.509Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-18T23:29:03.510Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/barber-search/tokens  
+ Sat Nov 18 2017 16:29:03 GMT-0700 (MST)
+[debug] [2017-11-18T23:29:04.122Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/zacharyshorts/Documents/School/ComputerScience/CS301/Barber Search'...
 [info] 
-[debug] [2017-11-18T18:59:18.171Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/barber-search  
- Sat Nov 18 2017 11:59:18 GMT-0700 (MST)
-[debug] [2017-11-18T18:59:18.588Z] <<< HTTP RESPONSE 200
-[debug] [2017-11-18T18:59:18.589Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/871581471072/clients/_:getWebAppConfig  
- Sat Nov 18 2017 11:59:18 GMT-0700 (MST)
-[debug] [2017-11-18T18:59:19.160Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-18T23:29:04.126Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/barber-search  
+ Sat Nov 18 2017 16:29:04 GMT-0700 (MST)
+[debug] [2017-11-18T23:29:04.736Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-18T23:29:04.737Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/871581471072/clients/_:getWebAppConfig  
+ Sat Nov 18 2017 16:29:04 GMT-0700 (MST)
+[debug] [2017-11-18T23:29:05.260Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
