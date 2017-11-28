@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!--Bootstrap CSS CDN-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!---jQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBVki0BbD3Cuu78u4FOxpv0JcfkcE5Ti0g",
+            authDomain: "barber-search.firebaseapp.com",
+            databaseURL: "https://barber-search.firebaseio.com",
+            projectId: "barber-search",
+            storageBucket: "barber-search.appspot.com",
+            messagingSenderId: "871581471072"
+        };
+        firebase.initializeApp(config);
+    </script>
 </head>
 <body>
-    <h1>Hello</h1>
+    <h1 id='message'></h1>
+    <image id='profile-pic'> </image>
+<!--Firebase-->
+    <script type="text/javascript">
+        function initApp() {
+            // Listening for auth state changes.
+            // [START authstatelistener]
+            firebase.auth().onAuthStateChanged(function (user) {
+                var message = document.querySelector('#message');
+                var profilePic = document.querySelector('#profile-pic');
+                var user = firebase.auth().currentUser;
+
+
+                message.innerHTML = `you are signed in as ${user.displayName} whose email is ${user.email}`;
+                profilePic.src = user.photoURL;
+            });
+            // [END authstatelistener]
+
+        }
+        window.onload = function () {
+            initApp();
+        };
+    </script>
 </body>
 </html>

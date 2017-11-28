@@ -12,23 +12,31 @@ function onSignIn(googleUser) {
                     console.log(`error ${errorCode}: ${error.message}.`)
                 })
                 .then(function() {
-                    var user = firebase.auth().currentUser;
-
-                    var rootRef = firebase.database().ref();
-                    var userRef = rootRef.child('barber').child(user.uid);
-                    console.log("uid: " + user.uid);
-                    console.log("name: " + user.displayName);
-                    console.log("email: " + user.email);
-                    console.log("picture: " + user.photoURL);
-
-                    userRef.set({
-                        fName: user.displayName,
-                        email: user.email,
-                        photoURL: user.photoURL
-                    });
+                    setCredentials();
                 });
         }
+        else if (firebase.auth().currentUser) {
+            setCredentials();
+        }
     });
+}
+
+function setCredentials() {
+    var user = firebase.auth().currentUser;
+
+    var rootRef = firebase.database().ref();
+    var userRef = rootRef.child('barber').child(user.uid);
+    console.log("uid: " + user.uid);
+    console.log("name: " + user.displayName);
+    console.log("email: " + user.email);
+    console.log("picture: " + user.photoURL);
+
+    userRef.set({
+        fName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL
+    });
+    window.location.href = '../main.html';
 }
 
 function isUserEqual(googleUser, firebaseUser) {
