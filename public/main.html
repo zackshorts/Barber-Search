@@ -25,8 +25,9 @@
     </script>
 </head>
 <body>
-    <image id='profile-pic'> </image>
-    <h1 id='message'></h1>
+    <image style="border-radius: 50px;" id='profile-pic'> </image>
+    <h1 id='name'></h1>
+    <h1 id='email'></h1>
 
 <!--Firebase-->
     <script type="text/javascript">
@@ -34,12 +35,14 @@
             // Listening for auth state changes.
             // [START authstatelistener]
             firebase.auth().onAuthStateChanged(function (user) {
-                var message = document.querySelector('#message');
+                var name = document.querySelector('#name');
+                var email = document.querySelector('#email');
                 var profilePic = document.querySelector('#profile-pic');
                 var user = firebase.auth().currentUser;
 
 
-                message.innerHTML = `you are signed in as ${user.displayName} whose email is ${user.email}`;
+                name.innerHTML = `Name: ${user.displayName}`;
+                email.innerHTML = `Email: ${user.email}`;
                 profilePic.src = user.photoURL;
             });
             // [END authstatelistener]
