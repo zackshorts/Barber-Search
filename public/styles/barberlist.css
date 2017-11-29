@@ -1,0 +1,29 @@
+#barber-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barber-item {
+    margin: 7px;
+    display: flex;
+    width: 500px;
+    border: solid;
+    align-items: center;
+}
+
+.barber-photo {
+    margin: 15px;
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.barber-info {
+}
+
+.barber-name {
+}
+
+.barber-location {
+}
