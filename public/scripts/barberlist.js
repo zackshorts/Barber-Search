@@ -11,14 +11,14 @@ function initApp() {
                     var key = childSnapshot.key;
                     var childData = childSnapshot.val();
 
-                    var barberItem = 
-                    `<div class="barber-item">
-                        <img class="barber-photo" src="${childData.photoURL}">
-                        <div class="barber-info">
-                            <h1 class="barber-name">${childData.fName}</h1>
-                            <h2 class="barber-location">Provo, UT</h2>
-                        </div>
-                    </div>`;
+                    var barberItem =
+                        `<div class="barber-item">
+                            <img class="barber-photo" src="${childData.photoURL}">
+                            <div class="barber-info">
+                                <a href="profile.html"><h1 class="barber-name">${childData.fName}</h1></a>
+                                <h2 class="barber-location">Provo, UT</h2>
+                            </div>
+                        </div>`;
 
                     barberList.insertAdjacentHTML('beforeend', barberItem);
                 });

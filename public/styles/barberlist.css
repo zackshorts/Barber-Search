@@ -4,11 +4,17 @@
     align-items: center;
 }
 
+body {
+    background-color: black;
+    height: 100vh;
+}
+
 .barber-item {
     margin: 7px;
     display: flex;
     width: 500px;
-    border: solid;
+    border: solid 1px;
+    border-radius: 5px;
     align-items: center;
 }
 
@@ -17,6 +23,10 @@
     border-radius: 50%;
     max-width: 100px;
     max-height: 100px;
+}
+section {
+    margin:0 auto;
+    max-width:500px;
 }
 
 .barber-info {
