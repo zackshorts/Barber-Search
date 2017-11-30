@@ -36,7 +36,7 @@ function setCredentials() {
         userRef.child('photoURL').set(user.photoURL);
       });
 
-    window.location.href = '../profile.html';
+    //window.location.href = '../profile.html';
 }
 
 function isUserEqual(googleUser, firebaseUser) {
