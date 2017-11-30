@@ -2,7 +2,6 @@ function initApp() {
     // Listening for auth state changes.
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function (user) {
-        console.log('hi');
         var query = firebase.database().ref("barber").orderByKey();
         query.once("value")
             .then(function (snapshot) {
@@ -15,8 +14,8 @@ function initApp() {
                         `<div class="barber-item">
                             <img class="barber-photo" src="${childData.photoURL}">
                             <div class="barber-info">
-                                <a href="profile.html"><h1 class="barber-name">${childData.fName}</h1></a>
-                                <h2 class="barber-location">Provo, UT</h2>
+                                <a href="profile.html"><h1 class="barber-name">${childData.barberShop? childData.barberShop : childData.fName}</h1></a>
+                                <h2 class="barber-location">${childData.location? childData.location : 'USA'}</h2>
                             </div>
                         </div>`;
 

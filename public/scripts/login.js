@@ -26,16 +26,16 @@ function setCredentials() {
 
     var rootRef = firebase.database().ref();
     var userRef = rootRef.child('barber').child(user.uid);
-    console.log("uid: " + user.uid);
-    console.log("name: " + user.displayName);
-    console.log("email: " + user.email);
-    console.log("picture: " + user.photoURL);
 
-    userRef.set({
-        fName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL
-    });
+    userRef.once('value', function(snapshot) {
+        if (!snapshot.hasChild('email'))
+        userRef.child('email').set(user.email);
+        if (!snapshot.hasChild('fName'))
+        userRef.child('fName').set(user.displayName);
+        if (!snapshot.hasChild('photoURL'))
+        userRef.child('photoURL').set(user.photoURL);
+      });
+
     window.location.href = '../profile.html';
 }
 

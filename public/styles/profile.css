@@ -1,0 +1,12 @@
+input {
+    border: none;
+    font-size: 36px !important;
+}
+
+form {
+    display: inline-block;
+}
+
+h1 {
+    display: inline-block;
+}
