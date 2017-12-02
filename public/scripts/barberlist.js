@@ -1,3 +1,4 @@
+var storageRef = firebase.storage().ref();
 function initApp() {
     // Listening for auth state changes.
     // [START authstatelistener]
@@ -12,19 +13,36 @@ function initApp() {
 
                     var barberItem =
                         `<div class="barber-item">
-                            <img class="barber-photo" src="${childData.photoURL}">
+                            <img class="barber-photo" data-path=${childData.photoURL}>
                             <div class="barber-info">
-                                <a href="profile.html"><h1 class="barber-name">${childData.barberShop? childData.barberShop : childData.fName}</h1></a>
-                                <h2 class="barber-location">${childData.location? childData.location : 'USA'}</h2>
+                                <a href="profile.html"><h1 class="barber-name">${childData.barberShop ? childData.barberShop : childData.fName}</h1></a>
+                                <h2 class="barber-location">${childData.location ? childData.location : 'USA'}</h2>
                             </div>
                         </div>`;
 
                     barberList.insertAdjacentHTML('beforeend', barberItem);
                 });
+                barberList.querySelectorAll('.barber-photo').forEach((img)=> {
+                    getImage(img.dataset.path, img);
+                })
             });
     });
-    // [END authstatelistener]
+}
 
+function getImage(photoURL,img) {
+    console.log(photoURL);
+    if (!photoURL || photoURL === 'undefined') {
+        console.log(1)
+        img.src =  'images/default.png'
+    } else {
+        storageRef.child(photoURL).getDownloadURL().then(function (url) {
+            console.log(url)
+            img.src = url;
+        }).catch(function (error) {
+            console.log(photoURL)
+            img.src =  photoURL;
+        });
+    }
 }
 window.onload = function () {
     initApp();
