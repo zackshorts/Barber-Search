@@ -35,22 +35,22 @@
     <br>
     <h1>Name: </h1>
     <form>
-        <input id='name-input' data-key="fName" type="text"></input>
+        <input id='name-input' class="data" data-key="fName" type="text"></input>
         <br>
     </form>
     <h1>Email: </h1>
     <form>
-        <input id='email-input' data-key="email" type="text"></input>
+        <input id='email-input' class="data" data-key="email" type="text"></input>
         <br>
     </form>
     <h1>Barber Shop: </h1>
     <form>
-        <input id='barbershop-input' data-key="barberShop" type="text"></input>
+        <input id='barbershop-input' class="data" data-key="barberShop" type="text"></input>
         <br>
     </form>
     <h1>Location: </h1>
     <form>
-        <input id='location-input' data-key="location" type="text"></input>
+        <input id='location-input' class="data" data-key="location" type="text"></input>
         <br>
     </form>
 
@@ -63,13 +63,15 @@
         </thead>
         <tbody></tbody>
     </table>
-    <form>
-        <input placeholder="Service" id='service-input' type="text"></input>
-    </form>
-    <form>
-        <input placeholder="Price" id='price-input' type="text"></input>
-    </form>
-    <button class="add-button">Add</button>
+    <div id="service-adder">
+        <form>
+            <input placeholder="Service" id='service-input' type="text"></input>
+        </form>
+        <form>
+            <input placeholder="Price" id='price-input' type="text"></input>
+        </form>
+        <button class="add-button">Add</button>
+    </div>
 
     <script src="scripts/profile.js"></script>
 </body>

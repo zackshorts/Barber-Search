@@ -12,13 +12,13 @@ function initApp() {
                     var childData = childSnapshot.val();
 
                     var barberItem =
-                        `<div class="barber-item">
+                        `<a href="profile.html?barber=${key}"><div class="barber-item">
                             <img class="barber-photo" data-path=${childData.photoURL}>
                             <div class="barber-info">
-                                <a href="profile.html"><h1 class="barber-name">${childData.barberShop ? childData.barberShop : childData.fName}</h1></a>
+                                <h1 class="barber-name">${childData.barberShop ? childData.barberShop : childData.fName}</h1>
                                 <h2 class="barber-location">${childData.location ? childData.location : 'USA'}</h2>
                             </div>
-                        </div>`;
+                        </div></a>`;
 
                     barberList.insertAdjacentHTML('beforeend', barberItem);
                 });
@@ -30,16 +30,12 @@ function initApp() {
 }
 
 function getImage(photoURL,img) {
-    console.log(photoURL);
     if (!photoURL || photoURL === 'undefined') {
-        console.log(1)
         img.src =  'images/default.png'
     } else {
         storageRef.child(photoURL).getDownloadURL().then(function (url) {
-            console.log(url)
             img.src = url;
         }).catch(function (error) {
-            console.log(photoURL)
             img.src =  photoURL;
         });
     }

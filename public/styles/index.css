@@ -47,3 +47,18 @@ div {
 	grid-column-start: 2;
 	grid-row-start: 3;
 }
+
+#logo{
+	top: 25%;
+	position: absolute;
+	width: 80%;
+	margin: 0 10%;
+	filter: invert();
+}
+
+@media (min-width: 1000px) {
+	#logo{
+		width: 800px;
+		margin: 0 calc((100vw - 800px)/2);
+	}
+}
