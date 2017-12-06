@@ -9,13 +9,18 @@ body {
     height: 100vh;
 }
 
+a {
+    width:90%;
+}
+
 .barber-item {
     margin: 7px;
     display: flex;
-    width: 90%;
+    width: auto;
     border: solid 1px;
     border-radius: 5px;
     align-items: center;
+    background-color: white;
 }
 
 .barber-photo {
@@ -27,6 +32,7 @@ body {
 section {
     margin:0 auto;
     max-width:500px;
+    background-color: black;
 }
 
 .barber-info {
@@ -43,3 +49,5 @@ section {
         width: 500px;
     }
 }
+
+
