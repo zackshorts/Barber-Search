@@ -60,7 +60,7 @@ div {
 	position: absolute;
 	width: 80%;
 	margin: 0 10%;
-	filter: invert();
+	filter: invert(100%);
 }
 
 @media (min-width: 1000px) {
