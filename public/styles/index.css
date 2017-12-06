@@ -24,6 +24,13 @@ body {
 	margin-top:20px;
 }
 
+h2 {
+	margin-top: 7px;
+	text-align: center;
+	font-family: Roboto,arial,sans-serif;
+	color: white;
+}
+
 .continueToSearch {
 	margin: 0 auto;
 	background-color: white;
