@@ -45,7 +45,7 @@ h2 {
 	height:36px;
 	grid-column-start: 3;
 	grid-row-start: 3;
-
+	border-radius: 1px;
 }
 
 div {

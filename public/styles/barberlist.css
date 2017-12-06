@@ -12,6 +12,11 @@ a {
     width:90%;
 }
 
+#logo {
+    width:20%;
+    height:auto;
+}
+
 .barber-item {
     margin: 7px;
     display: flex;
@@ -53,6 +58,13 @@ section {
     }
     section {
         background-color: white;
+    }
+}
+
+@media (max-width: 600px) {
+    #logo {
+        width:30%;
+        height: auto;
     }
 }
 
