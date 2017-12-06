@@ -5,7 +5,6 @@
 }
 
 body {
-    background-color: black;
     height: 100vh;
 }
 
@@ -20,7 +19,7 @@ a {
     border: solid 1px;
     border-radius: 5px;
     align-items: center;
-    background-color: white;
+    background-color: #F5F5F5;
 }
 
 .barber-photo {
@@ -32,7 +31,6 @@ a {
 section {
     margin:0 auto;
     max-width:500px;
-    background-color: black;
 }
 
 .barber-info {
@@ -47,6 +45,14 @@ section {
 @media (min-width: 600px) {
     .barber-item {
         width: 500px;
+    }
+
+    a {
+        /*Covers whole barber-item and margin*/
+        min-width:514px;
+    }
+    section {
+        background-color: white;
     }
 }
 
