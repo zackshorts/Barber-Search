@@ -31,12 +31,13 @@ h2 {
 	color: white;
 }
 
-.continueToSearch {
+.continueToSearch , .continueToEdit, .signout {
 	margin: 0 auto;
 	background-color: white;
 	font-size: 13px;
 	line-height: 34px;
 	font-family: Roboto,arial,sans-serif;
+	display: block;
 	color: #757575;
 	font-weight: 500;
 	letter-spacing: .21px;
@@ -46,6 +47,10 @@ h2 {
 	grid-column-start: 3;
 	grid-row-start: 3;
 	border-radius: 1px;
+}
+
+.continueToEdit, .signout {
+	margin-top: 20px;
 }
 
 div {
@@ -61,6 +66,14 @@ div {
 	width: 80%;
 	margin: 0 10%;
 	filter: invert(100%);
+}
+
+button {
+	cursor: pointer;
+}
+
+.hide {
+	display: none;
 }
 
 @media (min-width: 1000px) {

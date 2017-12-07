@@ -36,6 +36,11 @@ function setCredentials() {
         userRef.child('photoURL').set(user.photoURL);
       });
 
+      document.querySelector('#signin-message').innerHTML = `Signed in as ${user.displayName}`;
+      document.querySelector('.continueToEdit').classList.remove('hide');
+      document.querySelector('.g-signin2').classList.add('hide');
+      document.querySelector('.signout').classList.remove('hide');
+
     //window.location.href = '../profile.html';
 }
 
@@ -57,6 +62,10 @@ function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         firebase.auth().signOut()
+        document.querySelector('#signin-message').innerHTML = 'Barber Sign In Above';
+        document.querySelector('.continueToEdit').classList.add('hide');
+        document.querySelector('.g-signin2').classList.remove('hide');
+        document.querySelector('.signout').classList.add('hide');
         console.log('User signed out.');
     });
 }
