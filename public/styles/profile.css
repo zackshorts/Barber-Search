@@ -27,13 +27,22 @@ h1 {
 }
 
 .formInfo {
+    border: solid 1px black;
+    border-radius: 2px;
+    width:75%;
+    padding-top: 25px;
+    padding-bottom: 20px;
     display: grid;
-    grid-template-rows: 1fr .5fr .5fr .5fr .5fr .5fr .5fr;
-    align-items: center;
-    align-content: center;
+    grid-template-rows: auto auto auto auto auto auto auto;
     margin: 15px;
-
+    justify-items: center;
+    justify-content: center;
+    justify-self: center;
+    margin-left:auto;
+    margin-right: auto;
+    background-color: #F8F8F8;
 }
+
 div {
     margin:0;
     padding:0;
@@ -41,6 +50,10 @@ div {
 
 body {
     display: none;
+}
+
+#service-adder {
+    margin-top: 20px;
 }
 
 body#view-only div#service-adder, body#view-only input#getval{
@@ -93,7 +106,7 @@ img {
     font-size:23px;
     font-weight: 100;
     padding:24px;
-    text-align:left;
+    text-align:center;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     vertical-align:middle;
   }
