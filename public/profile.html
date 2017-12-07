@@ -28,49 +28,57 @@
 </head>
 
 <body>
-    <input type='file' id='getval' accept="image/*" />
-    <br/>
-    <br/>
-    <image id='profile-pic'> </image>
-    <br>
-    <h1>Name: </h1>
-    <form>
-        <input id='name-input' class="data" data-key="fName" type="text"></input>
-        <br>
-    </form>
-    <h1>Email: </h1>
-    <form>
-        <input id='email-input' class="data" data-key="email" type="text"></input>
-        <br>
-    </form>
-    <h1>Barber Shop: </h1>
-    <form>
-        <input id='barbershop-input' class="data" data-key="barberShop" type="text"></input>
-        <br>
-    </form>
-    <h1>Location: </h1>
-    <form>
-        <input id='location-input' class="data" data-key="location" type="text"></input>
-        <br>
-    </form>
-
-    <table id='service-table'>
-        <thead>
-            <tr>
-                <th>Service</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <div id="service-adder">
-        <form>
-            <input placeholder="Service" id='service-input' type="text"></input>
-        </form>
-        <form>
-            <input placeholder="Price" id='price-input' type="text"></input>
-        </form>
-        <button class="add-button">Add</button>
+    <div class="formInfo">
+        <div>
+            <image id='profile-pic'></image>
+            <input style="margin-top: 10px;" type='file' id='getval' accept="image/*" />
+        </div>
+        <div>
+            <h1>Name: </h1>
+            <form>
+                <input id='name-input' class="data" data-key="fName" type="text">
+                <br>
+            </form>
+        </div>
+        <div>
+            <h1>Email: </h1>
+            <form>
+                <input id='email-input' class="data" data-key="email" type="text">
+                <br>
+            </form>
+        </div>
+        <div>
+            <h1>Barber Shop: </h1>
+            <form>
+                <input id='barbershop-input' class="data" data-key="barberShop" type="text">
+                <br>
+            </form>
+        </div>
+        <div>
+            <h1>Location: </h1>
+            <form>
+                <input id='location-input' class="data" data-key="location" type="text">
+                <br>
+            </form>
+        </div>
+        <table id='service-table'>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div id="service-adder">
+            <form>
+                <input placeholder="Service" id='service-input' type="text"></input>
+            </form>
+            <form>
+                <input placeholder="Price" id='price-input' type="text"></input>
+            </form>
+            <button class="add-button">Add</button>
+        </div>
     </div>
 
     <script src="scripts/profile.js"></script>

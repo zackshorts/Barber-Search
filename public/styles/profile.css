@@ -1,6 +1,6 @@
 input {
     border: none;
-    font-size: 36px !important;
+    font-size: 24px !important;
 }
 
 form {
@@ -15,6 +15,18 @@ h1 {
     border-radius: 50px;
     width: 100px;
     height: 100px;
+}
+
+.formInfo {
+    display: grid;
+    grid-template-rows: 1fr .5fr .5fr .5fr .5fr .5fr .5fr;
+    align-items: center;
+    align-content: center;
+
+}
+div {
+    margin:0;
+    padding:0;
 }
 
 body {
