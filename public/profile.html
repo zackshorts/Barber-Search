@@ -8,6 +8,7 @@
     <!--Bootstrap CSS CDN-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <!---jQuery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
@@ -31,37 +32,37 @@
     <div class="formInfo">
         <div>
             <image id='profile-pic'></image>
-            <input style="margin-top: 10px;" type='file' id='getval' accept="image/*" />
+            <input style="margin-top: 10px; display: none;" type='file' id='getval' accept="image/*" />
         </div>
         <div>
             <h1>Name: </h1>
             <form>
-                <input id='name-input' class="data" data-key="fName" type="text">
+                <input id='name-input' placeholder="Add name" class="data" data-key="fName" type="text">
                 <br>
             </form>
         </div>
         <div>
             <h1>Email: </h1>
             <form>
-                <input id='email-input' class="data" data-key="email" type="text">
+                <input id='email-input' class="data" placeholder="Add contact email" data-key="email" type="text">
                 <br>
             </form>
         </div>
         <div>
             <h1>Barber Shop: </h1>
             <form>
-                <input id='barbershop-input' class="data" data-key="barberShop" type="text">
+                <input id='barbershop-input' class="data" placeholder="Add barber shop name" data-key="barberShop" type="text">
                 <br>
             </form>
         </div>
         <div>
             <h1>Location: </h1>
             <form>
-                <input id='location-input' class="data" data-key="location" type="text">
+                <input id='location-input' class="data" placeholder="Add location" data-key="location" type="text">
                 <br>
             </form>
         </div>
-        <table id='service-table'>
+        <table class="table-fill" id='service-table'>
             <thead>
                 <tr>
                     <th>Service</th>

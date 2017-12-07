@@ -1,5 +1,4 @@
 var storageRef = firebase.storage().ref();
-const moneyRegex = /^\d+(?:\.\d{0,2})$/;
 var user;
 var userID;
 var rootRef;
@@ -58,6 +57,19 @@ function initApp() {
                 });
             });
         });
+
+        document.querySelectorAll('input').forEach((input)=>{
+            input.addEventListener('click', (event) =>{
+                input.parentElement.classList.add('active');
+            });
+            input.addEventListener('blur', (event) =>{
+                input.parentElement.classList.remove('active');
+            });
+        })
+
+        document.querySelector('img').addEventListener('click', (event) => {
+            document.querySelector('#getval').click();
+        })
     }
 }
 
@@ -131,7 +143,7 @@ function guid(fileName) {
 
 document.querySelector('.add-button').addEventListener('click', (event) => {
     event.preventDefault();
-    if (moneyRegex.test(price.value) && service.value) {
+    if (price.value && service.value) {
         trHTML = `
         <tr>
             <td>${service.value}</td>
@@ -141,7 +153,7 @@ document.querySelector('.add-button').addEventListener('click', (event) => {
         serviceTable.insertAdjacentHTML('beforeend', trHTML);
 
         servicesRef.once('value', function (snapshot) {
-            console.log('hi')
+            console.log('hey')
             var key = service.value;
             servicesRef.child(key).set(formatMoney(price.value));
             service.value = '';
@@ -151,10 +163,15 @@ document.querySelector('.add-button').addEventListener('click', (event) => {
 });
 
 function formatMoney(n) {
-    n = parseFloat(n);
-    return "$" + n.toFixed(2).replace(/./g, function (c, i, a) {
-        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+    console.log(n)
+    var n = n.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\{\}\[\]\\\/]/gi, '');
+    console.log(n)
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
     });
+    return formatter.format(n);
 }
 
 function getParameterByName(name) {
