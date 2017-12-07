@@ -40,10 +40,10 @@ function initApp() {
             setup();
         });
 
-        document.querySelectorAll('form').forEach((form) => {
-            form.addEventListener("submit", (event) => {
+        document.querySelectorAll('input').forEach((input) => {
+            input.addEventListener("blur", (event) => {
                 event.preventDefault();
-                var input = event.target.querySelector('input')
+                var input = event.target;
 
                 input.blur();
 
