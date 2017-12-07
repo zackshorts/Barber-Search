@@ -2,6 +2,7 @@ input {
     border: none;
     font-size: 19px !important;
     width: 29rem;
+    cursor: text;
 }
 
 body{
@@ -70,7 +71,7 @@ body:not(#view-only) form:not(.active):before {
     color: #888;
 }
 
-form.active input {
+form.active input, body#view-only form input {
     margin-left: 1.6rem;
 }
 
@@ -79,7 +80,7 @@ h1 {
     width: 8rem;
 }
 
-img {
+body:not(#view-only) img {
     cursor: pointer;
 }
 
