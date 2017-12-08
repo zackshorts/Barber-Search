@@ -1,3 +1,17 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    /*font-size: 62.5%;*/
+    background: url("../images/clippers.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
 input {
     border: none;
     font-size: 19px !important;
@@ -66,8 +80,8 @@ body:not(#view-only) form:not(.active):before {
     line-height: 1.2;
     position: relative;
     left: 29rem;
-    font-family: "FontAwesome"; 
-    content: "\f040";
+    /*font-family: "FontAwesome"; */
+    /*content: "\f040";*/
     color: #888;
 }
 
