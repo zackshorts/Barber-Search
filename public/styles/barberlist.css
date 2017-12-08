@@ -32,7 +32,10 @@ a {
     width:20%;
     height:auto;
     color: lightgrey;
-    font-size:2rem;
+    font-size:2.5rem;
+    margin-bottom:5px;
+    padding-left: 3px;
+    padding-top: 3px;
 }
 
 .barber-item {
@@ -79,18 +82,20 @@ section {
     .barber-item {
         width: 500px;
     }
-
-    a {
-        /*Covers whole barber-item and margin*/
-        min-width:514px;
-    }
-
 }
 
 @media (max-width: 600px) {
     #logo {
         width:30%;
         height: auto;
+    }
+
+    a {
+        width:90%;
+    }
+
+    barber-item {
+        width:90%;
     }
 }
 
