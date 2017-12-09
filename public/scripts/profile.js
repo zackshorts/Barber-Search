@@ -40,7 +40,7 @@ function initApp() {
             setup();
         });
 
-        document.querySelectorAll('input').forEach((input) => {
+        document.querySelectorAll('input:not(.service)').forEach((input) => {
             input.addEventListener("blur", (event) => {
                 event.preventDefault();
                 var input = event.target;
@@ -58,10 +58,17 @@ function initApp() {
             });
         });
 
+        document.querySelectorAll('form').forEach(form=> {
+            form.addEventListener('submit', event =>{
+                event.preventDefault();
+            });
+        });
+
         document.querySelectorAll('input').forEach((input)=>{
             input.addEventListener('click', (event) =>{
                 input.parentElement.classList.add('active');
             });
+
             input.addEventListener('blur', (event) =>{
                 input.parentElement.classList.remove('active');
             });
@@ -100,6 +107,14 @@ function setup() {
             serviceTable.insertAdjacentHTML('afterbegin', trHTML);
         }
         document.body.style.display = 'initial';
+        serviceTable.querySelectorAll('tr').forEach(tr=>{
+            tr.addEventListener('click', (e) =>{
+                if (e.offsetX > tr.offsetWidth) {
+                    servicesRef.child(tr.querySelector('td').innerHTML).remove();
+                    tr.remove();
+                }
+            });
+        });
     });
 }
 

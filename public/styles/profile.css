@@ -98,6 +98,20 @@ body:not(#view-only) img {
     cursor: pointer;
 }
 
+body:not(#view-only) tbody tr:after {
+    content: '\f00d';
+    color: #888;
+    font-family: "FontAwesome";
+    position: relative;
+    left: 1rem;
+    cursor: pointer;
+    margin-right: -2rem;
+}
+
+body:not(#view-only) tbody tr:hover::before{
+    color: red;
+}
+
 /*** Table Styles **/
 
 .table-fill {
@@ -143,6 +157,8 @@ body:not(#view-only) img {
     font-weight:normal;
     text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
   }
+
+  
    
   tr:first-child {
     border-top:none;
