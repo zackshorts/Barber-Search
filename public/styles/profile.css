@@ -80,8 +80,8 @@ body:not(#view-only) form:not(.active):before {
     line-height: 1.2;
     position: relative;
     left: 29rem;
-    /*font-family: "FontAwesome"; */
-    /*content: "\f040";*/
+    font-family: "FontAwesome";
+    content: "\f040";
     color: #888;
 }
 
@@ -90,7 +90,7 @@ form.active input, body#view-only form input {
 }
 
 h1 {
-    font-size: 23px !important;
+    font-size: 20px !important;
     width: 8rem;
 }
 
