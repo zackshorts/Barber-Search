@@ -96,6 +96,7 @@ function setup() {
         getImage(snapshot.val().photoURL,img);
     });
     //services setup
+    var serviceTable = document.querySelector('#service-table tbody');
     servicesRef.once('value', function(snapshot){
         for (snap in snapshot.val()){
             trHTML = `
@@ -103,10 +104,12 @@ function setup() {
                 <td>${snap}</td>
                 <td>${snapshot.val()[snap]}</td>
             </tr>`;
-            var serviceTable = document.querySelector('#service-table tbody');
             serviceTable.insertAdjacentHTML('afterbegin', trHTML);
         }
         document.body.style.display = 'initial';
+        if (serviceTable.childElementCount === 0){
+            document.querySelector('#service-table').classList.add('empty');
+        }
         serviceTable.querySelectorAll('tr').forEach(tr=>{
             tr.addEventListener('click', (e) =>{
                 if (e.offsetX > tr.offsetWidth) {

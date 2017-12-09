@@ -112,6 +112,10 @@ body:not(#view-only) tbody tr:hover::before{
     color: red;
 }
 
+body#view-only .empty {
+    display: none;
+}
+
 /*** Table Styles **/
 
 .table-fill {
