@@ -24,18 +24,18 @@ function initApp() {
                     var childData = childSnapshot.val();
 
                     var barberItem =
-                        `<a href="profile.html?barber=${key}"><div class="barber-item">
+                        `<a class="loading" href="profile.html?barber=${key}"><div class="barber-item">
                             <img class="barber-photo" data-path=${childData.photoURL}>
                             <div class="barber-info">
                                 <h1 class="barber-name">${childData.barberShop ? childData.barberShop : childData.fName}</h1>
                                 <h2 class="barber-location">${childData.location ? childData.location : 'USA'}</h2>
                             </div>
-                        </div></a>`;
+                        </div><div class="loader"></div></a>`;
 
                     barberList.insertAdjacentHTML('beforeend', barberItem);
                 });
-                barberList.querySelectorAll('.barber-photo').forEach((img)=> {
-                    getImage(img.dataset.path, img);
+                barberList.querySelectorAll('a').forEach((item)=> {
+                    getImage(item);
                 })
             });
     });
@@ -44,7 +44,13 @@ function initApp() {
 
 }
 
-function getImage(photoURL,img) {
+function getImage(item) {
+    var img = item.querySelector('.barber-photo');
+    var photoURL = item.querySelector('.barber-photo').dataset.path;
+    img.onload = function() {
+        item.classList.remove('loading');
+    }
+    
     if (!photoURL || photoURL === 'undefined') {
         img.src =  'images/default.png'
     } else {
