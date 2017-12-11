@@ -89,6 +89,7 @@ h1 {
     border: solid 1px black;
     border-radius: 2px;
     width:50%;
+    min-width: 450px;
     padding-top: 25px;
     padding-bottom: 20px;
     display: grid;
@@ -118,19 +119,20 @@ body {
 body#view-only div#service-adder, body#view-only input#getval{
     display: none;
 }
+@media (min-width: 601px) {
+    body:not(#view-only) form:not(.active):before {
+        display: inline-block;
+        line-height: 1.2;
+        position: relative;
+        left: 29rem;
+        font-family: "FontAwesome";
+        content: "\f040";
+        color: #888;
+    }
 
-body:not(#view-only) form:not(.active):before {
-    display: inline-block;
-    line-height: 1.2;
-    position: relative;
-    left: 29rem;
-    font-family: "FontAwesome";
-    content: "\f040";
-    color: #888;
-}
-
-form.active input, body#view-only form input {
-    margin-left: 1.6rem;
+    form.active input, body#view-only form input {
+        margin-left: 1.6rem;
+    }
 }
 
 h1 {
@@ -194,12 +196,12 @@ body#view-only .empty {
 /*** Table Styles **/
 
 .table-fill {
+    max-width: calc(90% - 2rem);
     background: white;
     border-radius:3px;
     border-collapse: collapse;
     height: 320px;
     margin: auto;
-    max-width: 600px;
     padding:5px;
     width: 100%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -310,6 +312,7 @@ body#view-only .empty {
 
     .formInfo {
           width: 80%;
+          min-width: 80%;
     }
 
       nav a {
