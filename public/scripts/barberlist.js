@@ -1,9 +1,21 @@
 var storageRef = firebase.storage().ref();
+
+
+
 function initApp() {
     // Listening for auth state changes.
     // [START authstatelistener]
+
     firebase.auth().onAuthStateChanged(function (user) {
         var query = firebase.database().ref("barber").orderByKey();
+        if(firebase.auth().currentUser != null) {
+            console.log("signed in");
+
+        } else {
+            console.log("signed out");
+            var element = document.querySelector('#editprofile');
+            element.classList.add('hide');
+        }
         query.once("value")
             .then(function (snapshot) {
                 var barberList = document.querySelector("#barber-list");
@@ -27,6 +39,9 @@ function initApp() {
                 })
             });
     });
+
+
+
 }
 
 function getImage(photoURL,img) {
