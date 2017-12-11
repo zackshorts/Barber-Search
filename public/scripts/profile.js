@@ -43,6 +43,10 @@ function initApp() {
         document.querySelectorAll('input:not(.service)').forEach((input) => {
             input.addEventListener("blur", (event) => {
                 event.preventDefault();
+                var snackBar = document.getElementById("snackbar")
+                snackBar.className = 'show';
+                snackBar.innerHTML = 'updating';
+
                 var input = event.target;
 
                 input.blur();
@@ -54,6 +58,8 @@ function initApp() {
                 userRef.once('value', function (snapshot) {
                     var key = input.dataset.key;
                     userRef.child(key).set(input.value);
+                    snackBar.innerHTML = 'complete';
+                    snackBar.className = '';
                 });
             });
         });
