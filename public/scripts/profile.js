@@ -61,32 +61,23 @@ function initApp() {
         });
 
         document.querySelectorAll('input:not(.service)').forEach((input) => {
+            input.addEventListener('focus', event => {
+                event.preventDefault();
+                input.dataset.value = input.value;
+            });
+        });
+
+        document.querySelectorAll('input:not(.service)').forEach((input) => {
             input.addEventListener("blur", (event) => {
                 event.preventDefault();
-                var snackBar = document.getElementById("snackbar")
-                snackBar.className = 'show';
-                snackBar.innerHTML = 'updating';
-
-                var input = event.target;
-
-                input.blur();
-
-                var user = firebase.auth().currentUser;
-                var rootRef = firebase.database().ref();
-                var userRef = rootRef.child('barber').child(user.uid);
-
-                userRef.once('value', function (snapshot) {
-                    var key = input.dataset.key;
-                    userRef.child(key).set(input.value);
-                    snackBar.innerHTML = 'complete';
-                    snackBar.className = '';
-                });
+                updateInfo(event.target)
             });
         });
 
         document.querySelectorAll('form').forEach(form=> {
             form.addEventListener('submit', event =>{
                 event.preventDefault();
+                form.querySelector('input').blur();
             });
         });
 
@@ -103,7 +94,36 @@ function initApp() {
         document.querySelector('img').addEventListener('click', (event) => {
             document.querySelector('#getval').click();
         })
+
+        let updateInfo = (input) => {
+            if (input.dataset.value !== input.value){
+                input.blur();
+                snackBarInit();
+
+                var user = firebase.auth().currentUser;
+                var rootRef = firebase.database().ref();
+                var userRef = rootRef.child('barber').child(user.uid);
+
+                userRef.once('value', function (snapshot) {
+                    var key = input.dataset.key;
+                    userRef.child(key).set(input.value);
+                    snackBarInit();
+                });
+            }
+        }
     }
+}
+
+snackBarInit = () => {
+    var snackBar = document.getElementById("snackbar");
+    snackBar.className = 'show';
+    snackBar.innerHTML = 'Updating Profile';
+}
+
+snackBarComplete = () => {
+    var snackBar = document.getElementById("snackbar");
+    snackBar.innerHTML = 'Profile Updated';
+    setTimeout(function(){ snackBar.className = snackBar.className.replace("show", ""); }, 1000);
 }
 
 function setup() {
@@ -139,8 +159,10 @@ function setup() {
         serviceTable.querySelectorAll('tr').forEach(tr=>{
             tr.addEventListener('click', (e) =>{
                 if (e.offsetX > tr.offsetWidth) {
+                    snackBarInit();
                     servicesRef.child(tr.querySelector('td').innerHTML).remove();
                     tr.remove();
+                    snackBarComplete();
                 }
             });
         });
@@ -155,6 +177,7 @@ imageInput.addEventListener('change', () => {
         document.querySelector("#profile-pic").src = reader.result;
     }
     if (file) {
+        snackBarInit();
         reader.readAsDataURL(file);
         var imagePath = `images/${guid(file.name)}`;
         var imageRef = storageRef.child(imagePath);
@@ -166,6 +189,7 @@ imageInput.addEventListener('change', () => {
             userRef.once('value', function (snapshot) {
                 console.log('done');
                 userRef.child('photoURL').set(imagePath);
+                snackBarComplete();
             });
         })
     } else {
@@ -187,6 +211,7 @@ function guid(fileName) {
 
 document.querySelector('.add-button').addEventListener('click', (event) => {
     event.preventDefault();
+    snackBarInit();
     if (price.value && service.value) {
         trHTML = `
         <tr>
@@ -197,11 +222,11 @@ document.querySelector('.add-button').addEventListener('click', (event) => {
         serviceTable.insertAdjacentHTML('beforeend', trHTML);
 
         servicesRef.once('value', function (snapshot) {
-            console.log('hey')
             var key = service.value;
             servicesRef.child(key).set(formatMoney(price.value));
             service.value = '';
             price.value = '';
+            snackBarComplete();
         });
     }
 });
