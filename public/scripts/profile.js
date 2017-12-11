@@ -16,6 +16,17 @@ function initApp() {
         rootRef = firebase.database().ref();
         userRef = rootRef.child('barber').child(userID);
         servicesRef = userRef.child('services');
+        firebase.auth().onAuthStateChanged(function (user) {
+            var query = firebase.database().ref("barber").orderByKey();
+            if(firebase.auth().currentUser != null) {
+                console.log("signed in");
+
+            } else {
+                console.log("signed out");
+                var element = document.querySelector('#editprofile');
+                element.classList.add('hide');
+            }
+        });
 
         document.body.id = 'view-only'
         document.querySelectorAll('form').forEach((form)=>{
@@ -36,6 +47,15 @@ function initApp() {
             rootRef = firebase.database().ref();
             userRef = rootRef.child('barber').child(userID);
             servicesRef = userRef.child('services');
+
+            if(firebase.auth().currentUser != null) {
+                console.log("signed in");
+
+            } else {
+                console.log("signed out");
+                var element = document.querySelector('#editprofile');
+                element.classList.add('hide');
+            }
 
             setup();
         });

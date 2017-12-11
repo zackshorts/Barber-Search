@@ -3,7 +3,7 @@
 }
 
 body {
-    /*font-size: 62.5%;*/
+    font-size: 62.5%;
     background: url("../images/clippers.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
@@ -20,12 +20,48 @@ body {
     height: 100vh;
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    display: normal;
+}
+
+
+nav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+nav a {
+    color: #f5f5f5;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    transition: color 0.35s ease;
+}
+nav a:hover {
+    color: grey;
+}
+
+nav a:nth-of-type(1) {
+    margin-left: 10px;
+}
+
+nav a:nth-of-type(2) {
+    margin-left: 20px;
+}
+
+nav a:nth-of-type(3) {
+    margin-left: 20px;
+}
+
 a {
     background-color: transparent;
     margin:0;
     padding:0;
     text-decoration: none !important;
-
+    color: #f5f5f5;
 }
 
 #logo {
@@ -56,7 +92,9 @@ a {
 
 h1, h2 {
     text-decoration: none;
+
 }
+
 
 .barber-photo {
     margin: 15px;
@@ -70,12 +108,15 @@ section {
 }
 
 .barber-info {
+
 }
 
 .barber-name {
+    font-size: 3rem;
 }
 
 .barber-location {
+    font-size: 2rem;
 }
 
 @media (min-width: 600px) {
@@ -96,6 +137,19 @@ section {
 
     barber-item {
         width:90%;
+    }
+
+    nav a {
+        font-size: 1.3rem;
+    }
+
+
+    .barber-name {
+        font-size: 2rem;
+    }
+
+    .barber-location {
+        font-size: 1.35rem;
     }
 }
 
