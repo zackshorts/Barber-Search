@@ -87,7 +87,7 @@ h1 {
 .formInfo {
     border: solid 1px black;
     border-radius: 2px;
-    width:75%;
+    width:50%;
     padding-top: 25px;
     padding-bottom: 20px;
     display: grid;
@@ -270,6 +270,9 @@ body#view-only .empty {
     input {
         width:23rem;
     }
+      .formInfo {
+          width: 80%;
+      }
 
       nav a {
           font-size: 1.3rem;
