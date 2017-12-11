@@ -60,6 +60,7 @@ input {
     font-size: 19px !important;
     width: 29rem;
     cursor: text;
+    margin-bottom: 1rem;
 }
 
 body{
@@ -300,10 +301,16 @@ body#view-only .empty {
   @media (max-width: 600px) {
     input {
         width:23rem;
+        margin: 0 1rem 1rem 1rem !important;
     }
-      .formInfo {
+
+    h1 {
+        margin: 0 1rem !important;
+    }
+
+    .formInfo {
           width: 80%;
-      }
+    }
 
       nav a {
           font-size: 1.3rem;
