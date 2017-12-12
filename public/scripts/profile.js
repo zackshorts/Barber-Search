@@ -67,13 +67,6 @@ function initApp() {
             });
         });
 
-        document.querySelectorAll('input:not(.service)').forEach((input) => {
-            input.addEventListener("blur", (event) => {
-                event.preventDefault();
-                updateInfo(event.target)
-            });
-        });
-
         document.querySelectorAll('form').forEach(form=> {
             form.addEventListener('submit', event =>{
                 event.preventDefault();
@@ -88,6 +81,10 @@ function initApp() {
 
             input.addEventListener('blur', (event) =>{
                 input.parentElement.classList.remove('active');
+                if (!event.target.classList.contains('service')){
+                    event.preventDefault();
+                    updateInfo(event.target)
+                }
             });
         })
 
@@ -107,7 +104,8 @@ function initApp() {
                 userRef.once('value', function (snapshot) {
                     var key = input.dataset.key;
                     userRef.child(key).set(input.value);
-                    snackBarInit();
+                    snackBarComplete();
+                    console.log('done');
                 });
             }
         }
@@ -232,9 +230,7 @@ document.querySelector('.add-button').addEventListener('click', (event) => {
 });
 
 function formatMoney(n) {
-    console.log(n)
     var n = n.replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\{\}\[\]\\\/]/gi, '');
-    console.log(n)
     var formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
